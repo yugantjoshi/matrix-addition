@@ -1,51 +1,47 @@
-
-int main(int argc, char const *argv[])
+#include<stdio.h>
+int main()
 {
-  char line[20];
-
-  FILE *file;
-  file = fopen(argv[1], "r");
-
-  //create matrix of size rows x columns
-  fgets(line, sizeof(line), file);
-  int rows = atoi(&line[0]);
-  int columns = atoi(&line[2]);
-
-  //create 3 matricies of size rows x columns
-  int m1[rows][columns];
-  int m2[rows][columns];
-  int mFinal[rows][columns];
-
-  int i,j;
-  for(i=0; i<rows; i++)
+ int a[4][3],b[4][3],c[4][3],i,j;
+ printf("enter the values of 2 matrixes");
+ for(i=0;i<4;i++)
+ {
+  for(j=0;j<3;j++)
   {
-    for(j=0; j<columns; j++)
-    {
-      fscanf(file, "%d", &m1[i][j]);
-    }
+   scanf("%d",&a[i][j]);
   }
-  fgets(line, sizeof(line), file);
-  for(i=0; i<rows; i++)
+ }
+ for(i=0;i<4;i++)
+ {
+  for(j=0;j<3;j++)
   {
-    for(j=0; j<columns; j++)
-    {
-      fscanf(file, "%d", &m2[i][j]);
-    }
+   printf("%d  ",a[i][j]);
   }
-  for(i=0; i<rows; i++)
+  printf("\n");
+ }
+ for(i=0;i<4;i++)
+ {
+  for(j=0;j<3;j++)
   {
-    for(j=0; j<columns; j++)
-    {
-      mFinal[i][j] = m1[i][j]+m2[i][j];
-    }
+   scanf("%d",&b[i][j]);
   }
-  for(i =0; i<rows; i++)
+ }
+ for(i=0;i<4;i++)
+ {
+  for(j=0;j<3;j++)
   {
-    for(j =0; j<columns; j++)
-    {
-      printf("%d\t", mFinal[i][j]);
-    }
-    printf("\n");
+   printf("%d  ",b[i][j]);
   }
-  return 0;
+  printf("\n");
+ }
+ c[4][3]=a[4][3]+b[4][3];             //matrix addition//
+ printf("the sum of the matrices are :-\n");
+ for(i=0;i<4;i++)
+ {
+  for(j=0;j<3;j++)
+  {
+   printf("%d    ",a[i][j]+b[i][j]);
+  }
+  printf("\n");
+ }
+ return 0;
 }
